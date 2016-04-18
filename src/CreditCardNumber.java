@@ -27,8 +27,9 @@ public class CreditCardNumber {
     }
     
     
-    if (getSize(number) < 13 || getSize(number) > 16)
+    if (getSize(number) < 13 || getSize(number) > 16){
       return false;
+    } // if
     
     return true;
   }
@@ -37,8 +38,8 @@ public class CreditCardNumber {
   public static int sumOfDoubleEvenPlace(long number){
     int sum = 0;
     
-    for(int i = 2; i < getSize(number); i+=2){
-      sum += getDigit(2 * ((int)(number / Math.pow(10, i - 1))%10));  
+    for(int i = 2; i <= getSize(number); i+=2){
+      sum += getDigit(2 * ((int)(((number / Math.pow(10, i - 1))) % 10)));  
     }
     
     return sum;
@@ -60,7 +61,7 @@ public class CreditCardNumber {
     int sum = 0; 
     
     for(int i = 1; i <= getSize(number); i += 2)
-      sum += ((int)(number / Math.pow(10, i - 1))%10);
+      sum += (int)(((number / Math.pow(10, i - 1))) % 10);
     
     return sum;
   }
